@@ -11,16 +11,10 @@ def main():
     y2 = int(rec2[1])
     w2 = int(rec2[2])
     h2 = int(rec2[3])
-    if  x1+w1 <= x2 or y1+h1 <= y2:
+    width = min(x1+w1,x2+w2)-max(x1,x2)
+    height = min(y1+h1,y2+h2)-max(y1,y2)
+    if x1+w1 <= x2 or y1+h1 <= y2:
         print("no overlapping")
-    elif w1 <= w2 :
-        if y1 <= y2 :
-            print((w1-abs(x1-x2))*(h1-abs(y1-y2)))
-        else :
-            print((w1-abs(x1-x2))*(h2-abs(y1-y2)))
-    else :
-        if y1 <= y2 :
-            print((w2-abs(x1-x2))*(h1-abs(y1-y2)))
-        else :
-            print((w2-abs(x1-x2))*(h2-abs(y1-y2)))
+    else:
+        print(width*height)
 main()
