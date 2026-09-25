@@ -1,12 +1,12 @@
 """3293"""
 def main():
     """frame"""
-    line1 = input()
-    line2 = input()
-    line3 = input()
-    line4 = input()
-    line5 = input()
-    frame = max(len(line1),len(line2),len(line3),len(line4),len(line5))
-    print(frame)
-    print("*"*frame)
+    line = []
+    for _ in range(5):
+        line.append(input().strip())
+    frame = len(max(line,key=len))
+    print("*"*(frame+4))
+    for i in range(5):
+        print("*",line[i]+" "*(frame-len(line[i])),"*")
+    print("*"*(frame+4))
 main()
